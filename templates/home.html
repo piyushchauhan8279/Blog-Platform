@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}
+  Blog Project - Home
+{% endblock %}
+{% block content %}
+  <div class="container px-3">
+    <div class="row">
+      <div class="col-md-8">
+        <h3 id="HEADFONT">Recently Updated</h3>
+        {% for blog in blogs %}
+        <div class="card">
+          <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+          <div class="card-body" id="hover-body-card" onclick="window.location.href = '/b/{{blog.blog_slug}}';">
+            <h4 class="card-title" id="TITLEFONT">{{blog.blog_title}}</h4>
+            <p class="card-text" id="CONTENT-FONT">{{ blog.blog_content|truncate(250)}}</p>
+            likes : {{blog.blog_likes}} <br>
+            date posted : {{blog.blog_date}}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col-md-4 my-2">
+        <h3 id="HEADFONT">Most Popular</h3>
+        <div class="card">
+          <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+          <div class="card-body" id="hover-body-card">
+            <h4 class="card-title" id="TITLEFONT">Building Web Applications with Flask</h4>
+            <p class="card-text">Flask is a lightweight and versatile web framework for Python. It allows developers to quickly build web applications with minimalistic design yet powerful features. Whether you're a beginner or an experienced developer, Flask offers a flexible environment for creating anything from simple prototypes to complex, scalable applications.</p>
+          </div>
+        </div>
+        <div class="card">
+          <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+          <div class="card-body" id="hover-body-card">
+            <h4 class="card-title" id="TITLEFONT">Exploring Conversational AI with ChatGPT</h4>
+            <p class="card-text">ChatGPT, powered by OpenAI's cutting-edge language models, opens up exciting possibilities in the realm of conversational AI. From chatbots to virtual assistants, ChatGPT enables developers to create engaging and natural conversations with users. With its advanced capabilities, integrating ChatGPT into your applications can enhance user experiences and streamline interactions.</p>
+          </div>
+        </div>
+        <div class="card">
+          <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+          <div class="card-body" id="hover-body-card">
+            <h4 class="card-title" id="TITLEFONT">Mastering Python for Development</h4>
+            <p class="card-text">Python continues to be a dominant force in the world of programming, thanks to its simplicity, versatility, and robust ecosystem. Whether you're a beginner learning the basics or an experienced developer diving into advanced topics, Python offers a wealth of resources and libraries for various domains such as web development, data science, machine learning, and more. Embrace Python and unlock endless possibilities in your development journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <center>
+    <div class="container">
+      {% if currrent_page>1 %}
+        <a class="btn mx-2 p-3" id="btns"  href="/p/{{currrent_page-1}}" role="button">
+          Previous Blogs </a>
+      {% else %}
+        <a class="btn mx-2 p-3 disabled" id="btns" href="#" role="button">
+          Previous Blogs </a>
+      {% endif %}
+      {% if currrent_page<last_page %}
+        <a class="btn mx-2 p-3" id="btns" href="/p/{{currrent_page+1}}" role="button">
+          Show More Blogs </a>
+      {% else %}
+        <a class="btn mx-2 p-3 disabled" id="btns" href="#" role="button">
+          Show More Blogs </a> 
+      {% endif %}
+    </div>
+  </center>
+    <br>
+    
+{% endblock %}

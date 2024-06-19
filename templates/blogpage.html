@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}
+Blog Page
+{% endblock %}
+{% block content %}
+<div class="px-3">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+        <div class="card-body mx-3">
+          <p class="card-header-date">POSTED {{blog.blog_date}} UTC</p>
+          <h3 id="TITLEFONT">{{blog.blog_title}}</h3>
+          <p class="card-text" id="CONTENT-FONT">{{ blog.blog_content }}</p>
+          likes : {{blog.blog_likes}} <br>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3 class="mx-2" id="HEADFONT">MOST POPULAR</h3>
+      <div class="card">
+        <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+        <div class="card-body" id="hover-body-card">
+          <h4 class="card-title" id="TITLEFONT">Building Web Applications with Flask</h4>
+          <p class="card-text">Flask is a lightweight and versatile web framework for Python. It allows developers to quickly build web applications with minimalistic design yet powerful features. Whether you're a beginner or an experienced developer, Flask offers a flexible environment for creating anything from simple prototypes to complex, scalable applications.</p>
+        </div>
+      </div>
+      <div class="card">
+        <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+        <div class="card-body" id="hover-body-card">
+          <h4 class="card-title" id="TITLEFONT">Exploring Conversational AI with ChatGPT</h4>
+          <p class="card-text">ChatGPT, powered by OpenAI's cutting-edge language models, opens up exciting possibilities in the realm of conversational AI. From chatbots to virtual assistants, ChatGPT enables developers to create engaging and natural conversations with users. With its advanced capabilities, integrating ChatGPT into your applications can enhance user experiences and streamline interactions.</p>
+        </div>
+      </div>
+      <div class="card">
+        <!-- <img class="card-img-top" src="holder.js/100x180/" alt="Title" /> -->
+        <div class="card-body" id="hover-body-card">
+          <h4 class="card-title" id="TITLEFONT">Mastering Python for Development</h4>
+          <p class="card-text">Python continues to be a dominant force in the world of programming, thanks to its simplicity, versatility, and robust ecosystem. Whether you're a beginner learning the basics or an experienced developer diving into advanced topics, Python offers a wealth of resources and libraries for various domains such as web development, data science, machine learning, and more. Embrace Python and unlock endless possibilities in your development journey.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<form action="#" method="post">
+  <!-- <p>Email : </p>
+<p><input type="email" name="email"></p>
+<p>Password : </p>
+<p><input type="password" name="passd"></p>
+<p><input type="submit" value="submit"></p> -->
+  <div class="mb-3 mx-3 px-5">
+    <label for="exampleFormControlTextarea1" id="HEADFONT" class="form-label">COMMENTS</label>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            Follow These Basic Community Guidelines
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="mx-4 px-2 accordion-collapse collapse" aria-labelledby="flush-headingThree"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <li> Be cool, kind, and civil to one another.</li>
+            <li> Please speak English only.</li>
+            <li> Do not spam.</li>
+            <li> No self-promotion or advertisements.</li>
+            <li> No personal information.</li>
+            <li> No hate speech or harmful language.</li>
+            <li> No political or religious topics.</li>
+            <li> No sexual, NSFW, or otherwise suspicious comment.</li>
+            <li> Rules are subject to common sense.</li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>
+    </p>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Post a comment"
+      name="blog_comment"></textarea>
+
+    </center>
+    <p><input type="submit" value="comment" class="btn btn-primary mt-3"></p>
+</form>
+{% for comment in comments %}
+  {% if comment %}
+    <div class="card border-primary col-5">
+      <div class="card-body">
+        <h4 class="card-title">{{comment.fullname}}</h4>
+        <p class="card-text">{{comment.blog_comment}}</p>
+        {{comment.comment_date}} UTC
+      </div>
+    </div>
+    <br>
+  {% endif %}
+{% endfor %}
+</div>
+{% endblock %}

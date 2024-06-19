@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+Blog Editor
+{% endblock %}
+{% block banner %}
+<hr>
+<h2>Welcome {{user.fullname}} 😃 to the Blog Editor!</h2>
+<hr>
+<h3>Add a new blog from here</h3>
+<br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-info" role="alert">{{msg}}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+{% block content %}
+<center>
+    <form action="#" method="post">
+        <!-- <p>Email : </p>
+    <p><input type="email" name="email"></p>
+    <p>Password : </p>
+    <p><input type="password" name="passd"></p>
+    <p><input type="submit" value="submit"></p> -->
+        <div class="mb-3 mx-3 px-3">
+            <label for="exampleFormControlInput1" class="form-label">Blog Title</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1"
+                placeholder="eg. How to create a example application"
+                name="blog_title" required>
+        </div>
+        <div class="mb-3 mx-3 px-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Blog content</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Follow these guildelines while writing your blog :
+            
+            1. Original Content Only 
+            2. No Spamming 
+            3. Respect Copyright Laws 
+            4. Accuracy and Fact-Checking 
+            5. Quality over Quantity 
+            6. Respect Privacy"
+            name="blog_content" required></textarea>
+        </div>
+    </center>
+    <div class="form-check mb-3 mx-4 px-5">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          I agree to terms and conditions
+        </label>
+      </div>
+        <p><input type="submit" value="publish your blog" class="btn btn-primary mx-5 px-5"></p>
+    </form>
+
+{% endblock %}

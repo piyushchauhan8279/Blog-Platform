@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+{% block content %}
+<center>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-primary" role="alert">{{msg}}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {{user}}
+
+</center>
+{% endblock %}

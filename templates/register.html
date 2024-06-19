@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+{% block content %}
+<center>
+    <!-- flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-primary" role="alert">{{msg}}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- form -->
+    <form action="#" method="post">
+        <p>Full Name : </p>
+        <p><input type="text" name="fullname"></p>
+        <p>Username: </p>
+        <p><input type="username" name="username" placeholder="example1234"></p>
+        <p>Email : </p>
+        <p><input type="email" name="email" placeholder="example123@mail.com"></p>
+        <p>Password : </p>
+        <p><input type="password" name="passd"></p>
+        <p><input type="submit" class="btn btn-primary" value="submit"></p>
+    </form>
+
+</center>
+{% endblock %}
