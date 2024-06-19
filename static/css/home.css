@@ -1,0 +1,56 @@
+body{
+    background-color: #14D5F4;
+}    
+/* hides scrollbar in edge, chrome,etc. */
+::-webkit-scrollbar {
+    display: none; 
+}
+
+#banner{
+    max-height: 60vh;
+    width: 100vw;
+    max-width: 100vw;
+}
+#hover-body-card:hover{
+    background-color: #14F5C9;
+    transition: all .8s ease;
+    -webkit-transition: all .8s ease;
+}
+.card-header-date{
+    color: #1449F5;
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+#TITLEFONT{
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+#HEADFONT{
+    font-size: 40px;
+    color: #1449F5;
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+#btns{
+    color: #0A6167;
+    background-color: #A1E112;
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+#CONTENT-FONT{
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+#NAVFONT{
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #11BDD8
+}
+
